@@ -20,7 +20,7 @@ use rand::Rng;
 use siphasher::sip::SipHasher13;
 use std::hash::{Hash, Hasher};
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Copy, Debug)]
 pub struct JumpHasher {
     hs: SipHasher13,
 }
