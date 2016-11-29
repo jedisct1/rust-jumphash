@@ -1,6 +1,18 @@
 #![cfg_attr(feature="clippy", feature(plugin))]
 #![cfg_attr(feature="clippy", plugin(clippy))]
 
+//! An implementation of the [Jump Consistent Hash Algorithm](https://arxiv.org/pdf/1406.2294.pdf).
+//!
+//! # Example
+//!
+//! ```
+//! extern crate jumphash;
+//!
+//! let jh = jumphash::JumpHasher::new();
+//! let slot_count = 100;
+//! let slot_for_key = jh.slot("key", slot_count);
+//! ```
+
 extern crate rand;
 extern crate siphasher;
 
@@ -14,6 +26,7 @@ pub struct JumpHasher {
 }
 
 impl Default for JumpHasher {
+    /// Returns a non-deterministic `JumpHasher` structure.
     fn default() -> JumpHasher {
         let mut rng = rand::thread_rng();
         Self::new_with_keys(rng.next_u64(), rng.next_u64())
@@ -21,14 +34,17 @@ impl Default for JumpHasher {
 }
 
 impl JumpHasher {
+    /// Returns a non-deterministic `JumpHasher` structure.
     pub fn new() -> JumpHasher {
         JumpHasher::default()
     }
 
+    /// Returns a deterministic `JumpHasher` structure, seeded with two 64-bit keys.
     pub fn new_with_keys(k1: u64, k2: u64) -> JumpHasher {
         JumpHasher { hs: SipHasher13::new_with_keys(k1, k2) }
     }
 
+    /// Returns a slot for the key `key`, out of `slot_count` available slots.
     pub fn slot<T: Hash>(&self, key: &T, slot_count: u32) -> u32 {
         assert!(slot_count > 0);
         let mut hs = self.hs.clone();
