@@ -40,6 +40,7 @@ impl JumpHasher {
     }
 
     /// Returns a deterministic `JumpHasher` structure, seeded with two 64-bit keys.
+    #[inline]
     pub fn new_with_keys(k1: u64, k2: u64) -> JumpHasher {
         JumpHasher { hs: SipHasher13::new_with_keys(k1, k2) }
     }
