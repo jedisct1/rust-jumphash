@@ -1,6 +1,6 @@
 [package]
 name = "jumphash"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Frank Denis <github@pureftpd.org>"]
 description = "A Fast, Minimal Memory, Consistent Hash Algorithm"
 keywords = ["hash"]
@@ -8,6 +8,11 @@ readme = "README.md"
 license = "ISC"
 homepage = "https://github.com/jedisct1/rust-jumphash"
 repository = "https://github.com/jedisct1/rust-jumphash"
+categories = ["algorithms", "concurrency"]
+
+[badges]
+travis-ci = { repository = "jedisct1/rust-jumphash" }
+appveyor = { repository = "jedisct1/rust-jumphash" }
 
 [dependencies]
 siphasher = "~0.2"
