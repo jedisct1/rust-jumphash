@@ -48,7 +48,7 @@ impl JumpHasher {
     /// Returns a slot for the key `key`, out of `slot_count` available slots.
     pub fn slot<T: Hash>(&self, key: &T, slot_count: u32) -> u32 {
         assert!(slot_count > 0);
-        let mut hs = self.hs.clone();
+        let mut hs = self.hs;
         key.hash(&mut hs);
         let mut h = hs.finish();
         let (mut b, mut j) = (-1i64, 0i64);
