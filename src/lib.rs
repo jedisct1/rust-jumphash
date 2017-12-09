@@ -1,5 +1,5 @@
-#![cfg_attr(feature="clippy", feature(plugin))]
-#![cfg_attr(feature="clippy", plugin(clippy))]
+#![cfg_attr(feature = "clippy", feature(plugin))]
+#![cfg_attr(feature = "clippy", plugin(clippy))]
 
 //! An implementation of the [Jump Consistent Hash Algorithm](https://arxiv.org/pdf/1406.2294.pdf).
 //!
@@ -42,7 +42,9 @@ impl JumpHasher {
     /// Returns a deterministic `JumpHasher` structure, seeded with two 64-bit keys.
     #[inline]
     pub fn new_with_keys(k1: u64, k2: u64) -> JumpHasher {
-        JumpHasher { hs: SipHasher13::new_with_keys(k1, k2) }
+        JumpHasher {
+            hs: SipHasher13::new_with_keys(k1, k2),
+        }
     }
 
     /// Returns a slot for the key `key`, out of `slot_count` available slots.
@@ -55,8 +57,8 @@ impl JumpHasher {
         while j < slot_count as i64 {
             b = j;
             h = h.wrapping_mul(2862933555777941757).wrapping_add(1);
-            j = ((b.wrapping_add(1) as f64) *
-                 (((1u64 << 31) as f64) / (((h >> 33) + 1) as f64))) as i64;
+            j = ((b.wrapping_add(1) as f64) * (((1u64 << 31) as f64) / (((h >> 33) + 1) as f64)))
+                as i64;
         }
         b as u32
     }
