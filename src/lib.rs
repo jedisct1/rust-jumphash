@@ -16,7 +16,7 @@
 extern crate rand;
 extern crate siphasher;
 
-use rand::Rng;
+use rand::RngCore;
 use siphasher::sip::SipHasher13;
 use std::hash::{Hash, Hasher};
 
