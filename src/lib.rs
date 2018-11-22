@@ -1,6 +1,3 @@
-#![cfg_attr(feature = "clippy", feature(plugin))]
-#![cfg_attr(feature = "clippy", plugin(clippy))]
-
 //! An implementation of the [Jump Consistent Hash Algorithm](https://arxiv.org/pdf/1406.2294.pdf).
 //!
 //! # Example
@@ -10,7 +7,7 @@
 //!
 //! let jh = jumphash::JumpHasher::new();
 //! let slot_count = 100;
-//! let slot_for_key = jh.slot("key", slot_count);
+//! let slot_for_key = jh.slot(&"key", slot_count);
 //! ```
 
 extern crate rand;

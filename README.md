@@ -20,5 +20,5 @@ extern crate jumphash;
 
 let jh = jumphash::JumpHasher::new();
 let slot_count = 100;
-let slot_for_key = jh.slot("key", slot_count);
+let slot_for_key = jh.slot(&"key", slot_count);
 ```
