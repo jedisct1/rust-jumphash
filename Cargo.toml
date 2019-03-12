@@ -9,6 +9,7 @@ license = "ISC"
 homepage = "https://github.com/jedisct1/rust-jumphash"
 repository = "https://github.com/jedisct1/rust-jumphash"
 categories = ["algorithms", "concurrency"]
+edition = "2018"
 
 [badges]
 travis-ci = { repository = "jedisct1/rust-jumphash" }

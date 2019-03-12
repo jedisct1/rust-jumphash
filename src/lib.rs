@@ -10,8 +10,7 @@
 //! let slot_for_key = jh.slot(&"key", slot_count);
 //! ```
 
-extern crate rand;
-extern crate siphasher;
+use rand;
 
 use rand::RngCore;
 use siphasher::sip::SipHasher13;
