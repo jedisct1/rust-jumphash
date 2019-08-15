@@ -1,6 +1,6 @@
 [package]
 name = "jumphash"
-version = "0.1.5"
+version = "0.1.6"
 authors = ["Frank Denis <github@pureftpd.org>"]
 description = "A Fast, Minimal Memory, Consistent Hash Algorithm"
 keywords = ["hash"]
@@ -16,8 +16,8 @@ travis-ci = { repository = "jedisct1/rust-jumphash" }
 appveyor = { repository = "jedisct1/rust-jumphash" }
 
 [dependencies]
-siphasher = "~0.2"
-rand = "~0.6"
+siphasher = "0.3"
+rand = "0.7"
 
 [profile.release]
 lto = true
