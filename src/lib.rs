@@ -10,8 +10,6 @@
 //! let slot_for_key = jh.slot(&"key", slot_count);
 //! ```
 
-use rand;
-
 use rand::RngCore;
 use siphasher::sip::SipHasher13;
 use std::hash::{Hash, Hasher};
