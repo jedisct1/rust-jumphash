@@ -16,7 +16,7 @@ travis-ci = { repository = "jedisct1/rust-jumphash" }
 appveyor = { repository = "jedisct1/rust-jumphash" }
 
 [dependencies]
-siphasher = "0.3"
+siphasher = "1.0"
 rand = "0.8.0"
 
 [profile.release]
