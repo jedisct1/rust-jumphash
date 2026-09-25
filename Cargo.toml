@@ -1,6 +1,6 @@
 [package]
 name = "jumphash"
-version = "0.1.8"
+version = "0.1.9"
 authors = ["Frank Denis <github@pureftpd.org>"]
 description = "Jump consistent hashing for mapping keys to buckets, distributed sharding, and load balancing"
 keywords = ["consistent-hashing", "hash", "sharding", "load-balancing", "jump-hash"]
@@ -17,7 +17,7 @@ appveyor = { repository = "jedisct1/rust-jumphash" }
 
 [dependencies]
 siphasher = "0.3"
-rand = "0.8.0"
+rand = "0.8.8"
 
 [profile.release]
 lto = true
