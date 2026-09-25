@@ -2,8 +2,8 @@
 name = "jumphash"
 version = "0.1.8"
 authors = ["Frank Denis <github@pureftpd.org>"]
-description = "A Fast, Minimal Memory, Consistent Hash Algorithm"
-keywords = ["hash"]
+description = "Jump consistent hashing for mapping keys to buckets, distributed sharding, and load balancing"
+keywords = ["consistent-hashing", "hash", "sharding", "load-balancing", "jump-hash"]
 readme = "README.md"
 license = "ISC"
 homepage = "https://github.com/jedisct1/rust-jumphash"
