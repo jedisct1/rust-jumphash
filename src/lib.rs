@@ -43,7 +43,7 @@ impl JumpHasher {
     }
 
     /// Returns a slot for the key `key`, out of `slot_count` available slots.
-    pub fn slot<T: Hash>(&self, key: &T, slot_count: u32) -> u32 {
+    pub fn slot<T: Hash + ?Sized>(&self, key: &T, slot_count: u32) -> u32 {
         debug_assert!(slot_count > 0);
         let mut hs = self.hs;
         key.hash(&mut hs);
@@ -74,7 +74,7 @@ impl<H: Hasher + Clone> CustomJumpHasher<H> {
     }
 
     /// Returns a slot for the key `key`, out of `slot_count` available slots.
-    pub fn slot<T: Hash>(&self, key: &T, slot_count: u32) -> u32 {
+    pub fn slot<T: Hash + ?Sized>(&self, key: &T, slot_count: u32) -> u32 {
         debug_assert!(slot_count > 0);
         let mut hs = self.hs.clone();
         key.hash(&mut hs);
@@ -100,6 +100,12 @@ fn test_basic() {
     assert_eq!(j.slot(&"test5", 50), 33);
     assert_eq!(j.slot(&"", 1000), 392);
     assert_eq!(j.slot(&"testz", 1), 0);
+
+    let key = vec![1u8, 2u8];
+    assert_eq!(j.slot(&[1u8, 2u8], 1000), 785);
+    assert_eq!(j.slot(&key, 1000), 785);
+    assert_eq!(j.slot(key.as_slice(), 1000), 785);
+
     let j = JumpHasher::new();
     assert_ne!(j.slot(&"test1", 1000), 8970050);
     let h0 = j.slot(&"test2", 1000);
